@@ -1,0 +1,19 @@
+.header {
+    color: white;
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+}
+
+.header-navs {
+    padding: 2rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.header-navs-nav {
+    font-size: 1rem;
+    font-weight: 700;
+}
+

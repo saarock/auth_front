@@ -1,0 +1,132 @@
+/* Container for the whole dashboard */
+.dashboard-nav-container {
+  display: flex;
+  height: 100vh;
+  font-family: 'Arial', sans-serif;
+}
+
+
+
+/* Sidebar styling */
+.dashboard-sidebar {
+  width: 250px;
+  background-color: #151920;
+  padding: 20px;
+  color: #fff;
+  height: 100vh;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  /* position: fixed; */
+  top: 0;
+  left: 0;
+  transition: width 0.3s ease; /* Smooth transition for resizing */
+}
+
+/* Hover effect for sidebar */
+.dashboard-sidebar:hover {
+  width: 280px;
+}
+
+/* User Info Section */
+.user-info {
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-info h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #ecf0f1;
+  margin-bottom: 10px;
+}
+
+/* Navigation links styling */
+.nav-links {
+  list-style-type: none;
+  padding: 0;
+}
+
+.nav-links li {
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.2s ease;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.nav-links li:hover {
+  background-color: #2c3e50;
+  cursor: pointer;
+}
+
+/* Styling for links in sidebar */
+.nav-links a {
+  color: #ecf0f1;
+  text-decoration: none;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 5px;
+  border-radius: 6px;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+/* Hover effect on links */
+.nav-links a:hover {
+  color: #3498db;
+  background-color: rgba(52, 152, 219, 0.1);
+}
+
+/* Active link styling */
+.nav-links a.active {
+  color: #3498db;
+  font-weight: bold;
+  background-color: rgba(52, 152, 219, 0.2);
+}
+
+/* Adding icons to the navigation */
+.nav-links li a svg {
+  margin-right: 10px;
+}
+
+/* Main content area */
+.dashboard-main-content {
+  flex-grow: 1;
+  padding: 40px;
+  background-color: #ecf0f1;
+  margin-left: 250px; /* To adjust for the sidebar width */
+  transition: margin-left 0.3s ease;
+}
+
+/* Content title */
+.dashboard-main-content h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Add a subtle border to the sidebar */
+.dashboard-sidebar {
+  border-right: 2px solid #2c3e50;
+}
+
+/* Optional: make the sidebar collapsible */
+.dashboard-sidebar.collapsed {
+  width: 60px;
+  padding: 10px;
+}
+
+.dashboard-sidebar.collapsed .user-info h2 {
+  display: none;
+}
+
+.dashboard-sidebar.collapsed .nav-links li {
+  justify-content: center;
+}
+
+.dashboard-sidebar.collapsed .nav-links a {
+  font-size: 0.9rem;
+}

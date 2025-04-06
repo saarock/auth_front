@@ -1,13 +1,17 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link, useNavigate } from 'react-router';
-import { logout, setError } from '../../features/auth/authSlice';
-import { Cookie, handleResponse, LocalStorage, logoutFromClientSide } from '../../utils';
+import { Link } from 'react-router';
+import { setError } from '../../features/auth/authSlice';
+import { handleResponse, logoutFromClientSide } from '../../utils';
 import { Auth } from '../../services';
+import "./header.css";
+import useTopLoader from '../../hooks/useTopLoader';
 
 const Header = () => {
   const auth = useSelector(state => state.auth);
   const dispatch = useDispatch();
+  const { topLoaderNumber } = useTopLoader();
+
 
   // Navigation links for authenticated and non-authenticated users
   const nav = [
@@ -32,7 +36,7 @@ const Header = () => {
     {
       id: "dashboard",
       name: "DashBoard",
-      slug: "/dash",
+      slug: `${auth.admin ? "/admin/dashboard" : "/user/dashboard"}`,
       userActive: auth.isAuthenticated,  // Visible only if user is authenticated
     },
     {
@@ -46,24 +50,27 @@ const Header = () => {
   // Handle logout action
   const handleLogout = async () => {
     try {
-      const response = await handleResponse(Auth.logout({user: localStorage.getItem("userData")}));
+      const response = await handleResponse(Auth.logout({ user: localStorage.getItem("userData") }));
       if (response.error) {
         logoutFromClientSide()
       }
 
       logoutFromClientSide()
-    } catch(error) {
+    } catch (error) {
       dispatch(setError(error.message));
     }
   };
 
   return (
-    <div>
-      <nav>
-        {nav.map((link) => 
+    <header className='header primary-div'>
+      <div style={{ width: `${topLoaderNumber}px`, height: "4px", backgroundColor: "green" }}></div>
+
+      <nav className='header-navs'>
+        {nav.map((link) =>
           link.userActive && (
             link.id === "logout" ? (
               <button
+                className='header-navs-nav'
                 key={link.id}
                 onClick={handleLogout}
                 style={{ margin: "0 10px", background: "none", border: "none", cursor: "pointer" }}
@@ -72,6 +79,7 @@ const Header = () => {
               </button>
             ) : (
               <Link
+                className='header-navs-nav'
                 key={link.id}
                 to={link.slug}
                 style={{ margin: "0 10px" }}
@@ -82,7 +90,8 @@ const Header = () => {
           )
         )}
       </nav>
-    </div>
+    </header>
+
   );
 };
 

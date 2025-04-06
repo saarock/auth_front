@@ -58,6 +58,11 @@ const LoginPage = () => {
       const user = { token: accessToken, ...userWithoutSensativeData };
 
       dispatch(login(user));
+      if (user.admin) {
+        navigate("/admin/dashboard");
+      } else {
+        navigate("/user/dashboard");
+      }
 
 
     } catch (error) {

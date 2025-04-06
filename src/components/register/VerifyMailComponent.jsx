@@ -8,7 +8,7 @@ const VerifyMailComponent = ({ onChangeOtp, onSubmitOtp, goToPrevPage }) => {
             <Button text={"back"} onClick={goToPrevPage} />
             <form onSubmit={onSubmitOtp}>
                 <Input type="number" placeholder='enter otp' onChange={onChangeOtp} />
-                <button>send</button>
+                <Button text={`send`}/>
             </form>
 
         </>

@@ -6,12 +6,12 @@ class Auth {
     static async login(userLoginFormDetails) {
         try {
             console.log("Login user");
-            
+
             const response = await api.post("/login", userLoginFormDetails);
             const data = response.data;
             return data;
         } catch (error) {
-            throw new Error(error.message);
+            throw new Error(error.response.data.message);
         }
     }
 
@@ -23,7 +23,7 @@ class Auth {
             const data = response.data;
             return data;
         } catch (error) {
-            throw new Error(error.message);
+            throw new Error(error.response.data.message);
         }
 
     }
@@ -34,7 +34,7 @@ class Auth {
             const data = await response.data;
             return data;
         } catch (error) {
-            throw new Error(error);
+            throw new Error(error.response.data.message);
         }
 
     }
@@ -45,7 +45,7 @@ class Auth {
             const data = response.data;
             return data;
         } catch (error) {
-            throw new Error(error.message);
+            throw new Error(error.response.data.message);
         }
     }
 
@@ -60,7 +60,7 @@ class Auth {
             const data = response.data;
             return data;
         } catch (error) {
-            throw new Error(error);
+            throw new Error(error.response.data.message);
         }
     }
 
@@ -71,18 +71,28 @@ class Auth {
             const data = response.data;
             return data;
         } catch (error) {
-            throw new Error(error);
+            throw new Error(error.response.data.message);
         }
+    }
+
+    static async generateAnotherAccessToken(refreshToken) {
+        try {
+            
+          } catch(error) {
+            throw new Error
+          }
     }
 
     static async verify() {
         try {
             const response = await protectedApi.post("/verifyToken");
             const data = response.data;
-            console.log(data);
 
             return data;
         } catch (error) {
+            if(!error.response.data.success) {
+
+            }
             throw new Error(error.response.data.message);
         }
     }

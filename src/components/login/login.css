@@ -1,0 +1,57 @@
+.login-div {
+    display: flex;
+    height: 39rem;
+    width: 100%;
+    position: relative;
+}
+
+.login-div-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+}
+.login-title {
+    font-weight: bold;
+    font-size: 1.8rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+  
+  .eye-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+    cursor: pointer;
+  }
+  
+  .forgot-password {
+    width: 100%;
+    max-width: 400px;
+    text-align: right;
+    margin: 8px 0 20px;
+    font-size: 0.9rem;
+  }
+  .password-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+
+  
+  .forgot-password a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .forgot-password a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+  }
+  

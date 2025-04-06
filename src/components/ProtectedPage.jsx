@@ -5,12 +5,13 @@ import { Auth } from '../services';
 import { login, setError, setLoading } from '../features/auth/authSlice';
 import { Cookie, handleResponse, LocalStorage } from '../utils';
 import { ACCESS_TOKEN_COOKIE_NAME } from '../constant';
+import LoadingComponent from './loading/LoadingComponent';
 
 
 const PUBLIC_ROUTES = ["/", "/login", "/register"]; // Define all public routes
 
 
-const PagesWrapper = ({ children }) => {
+const ProtectedPage = ({ children }) => {
     const auth = useSelector(state => state.auth);
     const dispatch = useDispatch();
     const location = useLocation();
@@ -25,27 +26,19 @@ const PagesWrapper = ({ children }) => {
 
 
     const isPublicPage = PUBLIC_ROUTES.includes(location.pathname);
-    console.log(isPublicPage);
-    
-
-
 
 
     useEffect(() => {
-
-
         const verifyToken = async () => {
 
             try {
-
                 dispatch(setLoading(true)); // Set loading state to true before the async operation
                 const response = await handleResponse(Auth.verify());
-                console.log(response);
 
                 if (response.error) {
                     dispatch(setError(response.error));
-                    navigate("/login");
-                    return;
+
+                    throw new Error(response.error)
                 }
 
                 const userStateObj = {
@@ -74,17 +67,29 @@ const PagesWrapper = ({ children }) => {
     }, [dispatch, auth.isAuthenticated]); // Only re-run effect if authentication state changes
 
 
-       // Redirect if already authenticated and trying to access the login page
-       useEffect(() => {
+    // Redirect if already authenticated and trying to access the login page
+    useEffect(() => {
         if (auth.isAuthenticated && location.pathname === "/login") {
-            navigate("/dash");
+            if (auth.admin) {
+            navigate("admin/dashboard");
+            return;
+            }
+            navigate("/user/dashboard");
         }
     }, [auth.isAuthenticated, location.pathname, navigate]);
-    
+
+
+    useEffect(() => {
+        if (auth.admin && location.pathname === "/user/dash") {
+            navigate("/");
+        } else if (!auth.admin && location.pathname === "/admin/dash") {
+            navigate("/");
+        }   
+    }, [auth.isAuthenticated, location.pathname, navigate]);
 
 
     if (loading) {
-        return <div>Loading...</div>; // Show loading indicator
+        return <LoadingComponent />; // Show loading indicator
     }
 
     if (error && !isPublicPage) {
@@ -94,4 +99,4 @@ const PagesWrapper = ({ children }) => {
     return <>{children}</>; // Render children when everything is fine
 };
 
-export default PagesWrapper;
+export default ProtectedPage;

@@ -2,10 +2,12 @@ import { BrowserRouter, Routes, Route } from 'react-router';
 import './App.css';
 import Layout from './Layout';
 import RegisterPage from './pages/register/RegisterPage';
-import { PagesWrapper } from './components';
+import { ProtectedPage, Profile } from './components';
 import LoginPage from './pages/login/LoginPage';
 import HomePage from './pages/home/HomePage';
-import DashPage from './pages/dash/DashPage';
+import DashboardLayout from './UserDashboardLayout';
+import UserDashPage from "./pages/userDash/UserDashPage"
+
 
 
 function App() {
@@ -13,12 +15,19 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
+          {/* Main Layout */}
           <Route path="" element={<Layout />}>
-            <Route path='/' index element={<PagesWrapper><HomePage /></PagesWrapper>} />
-            <Route path="/register" element={<PagesWrapper><RegisterPage /> </PagesWrapper>} />
-            <Route path="/login" element={<PagesWrapper><LoginPage /> </PagesWrapper>} />
-            <Route path="/dash" element={<PagesWrapper><DashPage /></PagesWrapper>} />
+            <Route path='/' index element={<ProtectedPage><HomePage /></ProtectedPage>} />
+            <Route path="/register" element={<ProtectedPage><RegisterPage /> </ProtectedPage>} />
+            <Route path="/login" element={<ProtectedPage><LoginPage /> </ProtectedPage>} />
           </Route>
+
+          {/* User Dashboard Layout */}
+          <Route path="user/dashboard" element={<DashboardLayout />}>
+            <Route path="" index element={<ProtectedPage><UserDashPage /></ProtectedPage>} />
+            <Route path="profile"  element={<ProtectedPage><Profile /></ProtectedPage>} />
+          </Route>
+
         </Routes>
       </BrowserRouter>
     </>

@@ -4,6 +4,7 @@ import { Auth } from "../../services";
 import { handleResponse } from "../../utils";
 import { useDispatch } from "react-redux";
 import { setError } from "../../features/auth/authSlice";
+import "./registerPage.css";
 
 const RegisterPage = () => {
   // hooks  starts
@@ -117,7 +118,7 @@ const RegisterPage = () => {
   }
 
   return (
-    <>
+    <div className="register-page">
       {isOtpSent ? (
         <VerifyMailComponent
          onChangeOtp={(e) => handelOtpInputChange(e.target.value)}
@@ -138,7 +139,7 @@ const RegisterPage = () => {
           onChangePassword={(e) => handleInputChange("password", e.target.value)}
         />
       )}
-    </>
+    </div>
   );
 };
 

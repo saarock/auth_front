@@ -2,7 +2,6 @@ import axios from "axios";
 import { ACCESS_TOKEN_COOKIE_NAME } from "../constant";
 import { Cookie } from "../utils";
 
-console.log(import.meta.env.VITE_API_URL + "     this")
 
 // Create and axios instance with default configuration
 const api = axios.create({
@@ -24,6 +23,8 @@ api.interceptors.request.use(
         return Promise.reject(error);
     }
 );
+
+
 
 // Response interceptor to handle errors globally
 api.interceptors.response.use(

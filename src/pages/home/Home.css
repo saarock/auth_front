@@ -1,0 +1,132 @@
+
+
+.inventory-home {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(160deg, #0d0d2b 0%, #1a2447 50%, #2e1b5f 100%);
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.hero-advanced {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  will-change: background-position;
+}
+
+.hero-advanced::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+  pointer-events: none;
+}
+
+.hero-content,
+.hero-img,
+.feature-card,
+.about-content,
+.about-img,
+.testimonial,
+.contact-form {
+  will-change: transform, opacity;
+}
+
+.hero-content {
+  transform: perspective(1000px) rotateY(5deg);
+  transition: transform 0.5s ease;
+}
+
+.hero-content:hover {
+  transform: perspective(1000px) rotateY(0deg);
+}
+
+.hero-img {
+  transform: perspective(1000px) rotateY(-5deg);
+  transition: transform 0.5s ease;
+}
+
+.hero-img:hover {
+  transform: perspective(1000px) rotateY(0deg);
+}
+
+.feature-card {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  backdrop-filter: blur(10px);
+}
+
+.feature-card:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.testimonial {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  backdrop-filter: blur(10px);
+}
+
+.testimonial:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.contact-form input,
+.contact-form textarea {
+  transition: all 0.4s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  transform: scale(1.03);
+}
+
+.btn.filled {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn.filled::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.5s ease, height 0.5s ease;
+}
+
+.btn.filled:hover::after {
+  width: 300%;
+  height: 300%;
+}
+
+.btn.outline {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn.outline::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.5s ease, height 0.5s ease;
+}
+
+.btn.outline:hover::after {
+  width: 300%;
+  height: 300%;
+}

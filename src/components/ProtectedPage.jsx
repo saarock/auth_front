@@ -70,22 +70,23 @@ const ProtectedPage = ({ children }) => {
     // Redirect if already authenticated and trying to access the login page
     useEffect(() => {
         if (auth.isAuthenticated && location.pathname === "/login") {
-            if (auth.admin) {
-            navigate("admin/dashboard");
-            return;
-            }
+            if (auth?.user?.role === "admin") {
+            navigate("/admin/dashboard/add-product");
+            } else {
             navigate("/user/dashboard");
+            }
         }
-    }, [auth.isAuthenticated, location.pathname, navigate]);
+    }, [auth, location]);
 
 
     useEffect(() => {
-        if (auth.admin && location.pathname === "/user/dash") {
+        if (auth?.user?.role === "admin" && location.pathname.includes("/user/dashboard")) {
             navigate("/");
-        } else if (!auth.admin && location.pathname === "/admin/dash") {
+        } else if (auth?.user?.role === "user" && location.pathname.includes("/admin/dashboard")) {
+            alert("you are not admin")
             navigate("/");
         }   
-    }, [auth.isAuthenticated, location.pathname, navigate]);
+    }, [auth, location.pathname]);
 
 
     if (loading) {

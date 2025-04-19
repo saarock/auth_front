@@ -1,57 +1,76 @@
 import React from 'react';
-import "./footer.css"
+import './footer.css';
 
 const Footer = () => {
   return (
-    <>
-        <footer className="primary-div text-white py-10">
-        <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-         
-                <div>
-                    <h2 className="text-3xl font-bold text-customGreen mb-4">Restaurant Name</h2>
-                    <p className="text-gray-300">
-                        Experience the finest dining with the best flavors from around the world.
-                        Where every meal is a memory.
-                    </p>
-                </div>
-          
-                <div>
-                    <h3 className="text-xl font-semibold text-customGreen mb-4">Quick Links</h3>
-                    <ul className="space-y-2">
-                        <li><a href="#menu" className="hover:text-green-600">Menu</a></li>
-                        <li><a href="#about" className="hover:text-green-600">About Us</a></li>
-                        <li><a href="#reservations" className="hover:text-green-600">Reservations</a></li>
-                        <li><a href="#contact" className="hover:text-green-600">Contact Us</a></li>
-                    </ul>
-                </div>
-      
-                <div>
-                    <h3 className="text-xl font-semibold text-customGreen mb-4">Contact Us</h3>
-                    <p className="text-gray-300">
-                        123 Food Street, Flavor Town<br />
-                        +1 234 567 890<br />
-                        info@restaurantname.com
-                    </p>
-                    <div className="flex space-x-4 mt-4">
-      
-                        <a href="#" className="hover:text-green-500"><i
-                                className="fab fa-facebook fa-lg"></i></a>
-                        <a href="#" className="hover:text-green-500"><i
-                                className="fab fa-twitter fa-lg"></i></a>
-                        <a href="#" className="hover:text-green-500"><i
-                                className="fab fa-instagram fa-lg"></i></a>
-                    </div>
-                </div>
-            </div>
-        
-            <div className="mt-8 border-t border-gray-700 pt-4 text-center">
-                <p className="text-gray-400 text-sm">© 2024 Restaurant Name. All rights reserved.</p>
-            </div>
+    <footer className="fr-site-footer bg-gray-900">
+      <div className="fr-footer-container">
+        <div className="fr-footer-brand">
+          <h2 className="fr-brand-title">TasteHaven</h2>
+          <p className="fr-brand-description">
+            Savor culinary artistry in every bite. Join us for an unforgettable dining experience.
+          </p>
         </div>
-    </footer>
-    </>
-  )
-}
 
-export default Footer
+        <div className="fr-footer-nav">
+          <h3 className="fr-nav-title">Explore</h3>
+          <ul className="fr-nav-list">
+            <li><a href="/menu" className="fr-nav-link">Our Menu</a></li>
+            <li><a href="/about" className="fr-nav-link">Our Story</a></li>
+            <li><a href="/reservations" className="fr-nav-link">Book a Table</a></li>
+            <li><a href="/contact" className="fr-nav-link">Get in Touch</a></li>
+          </ul>
+        </div>
+
+        <div className="fr-footer-newsletter">
+          <h3 className="fr-newsletter-title">Stay Updated</h3>
+          <p className="fr-newsletter-text">
+            Subscribe for exclusive offers and updates.
+          </p>
+          <form className="fr-newsletter-form" onSubmit={(e) => e.preventDefault()}>
+            <input
+              type="email"
+              className="fr-newsletter-input"
+              placeholder="Your Email"
+              aria-label="Email for newsletter"
+            />
+            <button type="submit" className="fr-newsletter-button">
+              Subscribe
+            </button>
+          </form>
+        </div>
+
+        <div className="fr-footer-contact">
+          <h3 className="fr-contact-title">Connect With Us</h3>
+          <p className="fr-contact-info">
+            456 Flavor Avenue, Gourmet City<br />
+            +1 987 654 3210<br />
+            contact@tastehaven.com
+          </p>
+          <div className="fr-social-links">
+            <a href="https://facebook.com" className="fr-social-link" aria-label="Facebook">
+              <i className="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://twitter.com" className="fr-social-link" aria-label="Twitter">
+              <i className="fab fa-twitter"></i>
+            </a>
+            <a href="https://instagram.com" className="fr-social-link" aria-label="Instagram">
+              <i className="fab fa-instagram"></i>
+            </a>
+            <a href="https://linkedin.com" className="fr-social-link" aria-label="LinkedIn">
+              <i className="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div className="fr-footer-bottom">
+        <p className="fr-copyright">
+          © {new Date().getFullYear()} TasteHaven. Crafted with love.
+        </p>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;

@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 body {
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-h2,h3 {
+
+h2,
+h3 {
     color: rgba(85, 179, 31, 0.753);
 }
 
-.primary-div  {
+.primary-div {
     background-color: #151920;
 }
-.dashboard-content {
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+
+.dashboard-content {    width: 100%
 }

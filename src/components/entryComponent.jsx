@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router';
 import './entry.css';
 
+
 const EntryComponent = () => {
     const navigate = useNavigate();
     const location = useLocation();
@@ -31,6 +32,9 @@ const EntryComponent = () => {
             </div>
             <div className="entry-toggle" onClick={handleNavigation}>
                 {isLogin ? "Register" : "Login"}
+            </div>
+            <div className="invertory-image">
+                <img src = {`./images/in.png`} alt="Inventory" className="entry-image" width={500} height={500}/>
             </div>
         </div>
     );

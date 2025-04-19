@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { ACCESS_TOKEN_COOKIE_NAME, REFRESH_TOKEN_COOKIE_NAME } from '../../constant';
 import { login } from '../../features/auth/authSlice';
 import { useNavigate } from 'react-router';
+import { toast } from 'react-toastify';
 
 const LoginPage = () => {
   const [userLoginFormData, setUserLoginFormData] = useState({
@@ -45,10 +46,12 @@ const LoginPage = () => {
     try {
       const response = await handleResponse(Auth.login(userLoginFormData));
       if (response.error) {
+        toast.error(response.error)
         return;
       }
 
       const { refreshToken, accessToken, userWithoutSensativeData } = response.data;
+
 
       Cookie.set(ACCESS_TOKEN_COOKIE_NAME, accessToken, 1);
       Cookie.set(REFRESH_TOKEN_COOKIE_NAME, refreshToken, 10);
@@ -56,17 +59,17 @@ const LoginPage = () => {
 
 
       const user = { token: accessToken, ...userWithoutSensativeData };
-
       dispatch(login(user));
-      if (user.admin) {
-        navigate("/admin/dashboard");
+      if (user.role === "admin") {
+        navigate("admin/dashboard/add-product");
       } else {
-        navigate("/user/dashboard");
+   
+        navigate("/products");
       }
 
 
     } catch (error) {
-      console.log(error.message);
+      toast.error(error.message);
 
     }
 

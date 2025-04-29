@@ -113,12 +113,26 @@ const Product = ({ product, handleDeleteProduct, handleToggleAvailability, user,
           </td>
         ) : (
           <td>
-            <form onSubmit={(e) => addToCart(e,user._id, product._id, product.name, product.price, product.imageUrl)}>
-              <input type="number" name="totalItem" id="totalItem" min={0} max={product.stock} 
-              onClick={(e) => e.stopPropagation()} onChange={(e) => setTotalItem(e.target.value)} />
-              <button type='submit' onClick={(e) => e.stopPropagation()}>Add To Cart</button>
+            <form onSubmit={(e) => addToCart(e, user._id, product._id, product.name, product.price, product.imageUrl)} className="cart-form">
+              <div className="input-container">
+                <input
+                  type="number"
+                  name="totalItem"
+                  id="totalItem"
+                  min={0}
+                  max={product.stock}
+                  onClick={(e) => e.stopPropagation()}
+                  onChange={(e) => setTotalItem(e.target.value)}
+                  className="input-field"
+                  placeholder="Quantity"
+                />
+              </div>
+              <button type="submit" className="add-to-cart-button" onClick={(e) => e.stopPropagation()}>
+                Add to Cart
+              </button>
             </form>
           </td>
+
         )}
       </tr>
 

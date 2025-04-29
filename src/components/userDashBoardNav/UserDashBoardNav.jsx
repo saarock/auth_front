@@ -1,17 +1,11 @@
 import React from 'react';
-import { FaUser, FaCog, FaBell, FaEnvelope, FaSignOutAlt } from 'react-icons/fa'; // Import icons
+import { FaUser, FaCog, FaBell, FaEnvelope, FaSignOutAlt } from 'react-icons/fa';
 import './userDash.css';
-import { Link } from 'react-router';
+import { NavLink } from 'react-router';
 import { useSelector } from 'react-redux';
 
 const UserDashBoardNav = () => {
-
   const user = useSelector(state => state.auth.user);
-
-
-
-
-
 
   // Array to hold the navigation links along with their respective icons
   const navLinks = [
@@ -23,19 +17,21 @@ const UserDashBoardNav = () => {
   ];
 
   return (
-    <div className="dashboard-nav-container">
-      <div className="dashboard-sidebar">
-        <div className="user-info">
-          <h2 className='user-name'>Welcome, {user?.fullName  || "User"}</h2>
+    <div className="nav-panel">
+      <div className="sidebar-container">
+        <div className="user-profile">
+          <h2 className="greeting-text">Welcome, {user?.fullName || "User"}</h2>
         </div>
-        <ul className="nav-links">
+        <ul className="navigation-list">
           {navLinks.map((link, index) => (
             <li key={index}>
-              <Link to={link.path}>
-                {/* Add icon and text */}
-                <span className="icon">{link.icon}</span>
-                {link.name}
-              </Link>
+              <NavLink
+                to={link.path}
+                className={({ isActive }) => (isActive ? "active-nav-item" : "nav-item")}
+              >
+                <span className="nav-icon">{link.icon}</span>
+                <span className="nav-text">{link.name}</span>
+              </NavLink>
             </li>
           ))}
         </ul>

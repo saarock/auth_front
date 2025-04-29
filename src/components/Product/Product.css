@@ -476,3 +476,85 @@ thead th {
 }
 
 
+/* Wrapper for the form */
+.cart-form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  flex-wrap: wrap; 
+}
+
+
+
+/* Input field styling */
+.input-container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  max-width: 70%; /* Prevent input from taking too much space */
+}
+
+.input-field {
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #3498db;
+  background-color: #fff;
+}
+
+/* Button Styling */
+.add-to-cart-button {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  /* flex-shrink: 0; */
+  width: auto;
+  min-width: 120px; /* Set a minimum width for the button */
+  text-align: center;
+}
+
+.add-to-cart-button:hover {
+  background-color: #2980b9;
+  transform: scale(1.05);
+}
+
+.add-to-cart-button:active {
+  transform: scale(0.98);
+}
+
+/* Responsive Design: Adjust layout on small screens */
+@media (max-width: 768px) {
+  .cart-form {
+    flex-direction: column; /* Stack elements vertically on smaller screens */
+    align-items: stretch; /* Make the input field and button stretch to the full width */
+  }
+
+  .input-container {
+    max-width: 100%; /* Ensure the input field takes up full width */
+    margin-bottom: 10px; /* Add space between input and button */
+  }
+
+  .add-to-cart-button {
+    width: 100%; /* Button will take up the full width on smaller screens */
+    min-width: 0; /* Remove the min-width to allow button to shrink */
+  }
+}

@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import useUser from '../../hooks/useUser';
 import { toast } from "react-toastify"
 import { addToCart  } from '../../features/product/productSlice';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 
 const ShowAndManageProductComponent = ({ adminWant = '1' }) => {
   const [products, setProducts] = useState([]);
@@ -113,6 +114,7 @@ const ShowAndManageProductComponent = ({ adminWant = '1' }) => {
 
   const addToCartBtn = (event, userId, productId,name,price, imageUrl) => {
     event.preventDefault();
+    toast.success("Product added to cart successfully!");
     const product = {
       userId,
       productId,
@@ -132,7 +134,7 @@ const ShowAndManageProductComponent = ({ adminWant = '1' }) => {
   return (
     <div className="product-manage-page">
       {loading ? (
-        <p>Loading...</p>
+        <LoadingSpinner />
       ) : (
         <div>
           {/* Search bar and filter options */}

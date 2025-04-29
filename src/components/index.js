@@ -9,5 +9,5 @@ import LoadingComponent from "./loading/LoadingComponent";
 import UserDashBoardNav from "./userDashBoardNav/UserDashBoardNav";
 import EntryComponent from "./entryComponent";
 import Profile from "./profile/Profile";
-
-export { Header, Button, Footer, RegisterComponent, UserDashBoardNav,Input, Profile, ProtectedPage, VerifyMailComponent, LoadingComponent, EntryComponent };
+import Bill from "./bill/Bill";
+export { Header, Button, Footer, Bill ,RegisterComponent, UserDashBoardNav,Input, Profile, ProtectedPage, VerifyMailComponent, LoadingComponent, EntryComponent };

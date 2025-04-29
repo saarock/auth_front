@@ -12,6 +12,7 @@ const AdminDashBoardNav = () => {
     { name: 'Manage Product', path: 'manage-product', icon: <FaPlusCircle /> },
     { name: 'Manage Users', path: 'manage-users', icon: <FaUsersCog /> },
     { name: 'My details', path: 'my-details', icon: <FaDeviantart /> },
+    { name: 'Manage booked product', path: 'manage-booked-product', icon: <FaDeviantart /> },
   ];
 
   return (

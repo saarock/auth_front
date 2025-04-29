@@ -1,9 +1,11 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import './Bill.css';
-import { deleteFromCart } from '../../features/product/productSlice';
+import { deleteAllFromCart, deleteFromCart } from '../../features/product/productSlice';
+import productService from '../../services/productService';
+import { toast } from 'react-toastify';
 
-const Bill = () => {
+const Bill = ({handelRefresh}) => {
   const products = useSelector((state) => state.products);
   const dispatch = useDispatch();
 
@@ -13,6 +15,28 @@ const Bill = () => {
 
   // Calculate total price
   const totalPrice = products?.reduce((sum, product) => sum + (product.totalPrice || 0), 0).toFixed(2);
+
+
+
+  const proceedToCheckOut = async () => {
+    
+    console.log(products)
+
+    try {
+      const data = await productService.buyProducts(products);
+      handelRefresh();
+      dispatch(deleteAllFromCart());
+      toast.success(data.message);
+
+      console.log(data);
+    } catch(error) {
+      toast.error(error.message)
+    }
+  }
+
+
+
+
 
   return (
     <>
@@ -56,7 +80,7 @@ const Bill = () => {
             <p className="total-price">
               <strong>Total:</strong> RS: {totalPrice}
             </p>
-            <button className="buy-button">✓ Proceed to Checkout</button>
+            <button className="buy-button" onClick={proceedToCheckOut}>✓ Proceed to Checkout</button>
           </div>
         )}
       </div>: ""

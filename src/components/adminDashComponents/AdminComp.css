@@ -222,6 +222,143 @@ input[type="file"]::file-selector-button:hover {
 /* ##################### ShowAndManageProductComponent css start ##############################*/
 
 /* AdminComp.css */
+
+/* General Layout */
+.product-manage-page {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #f5f5f5;
+  font-family: 'Arial', sans-serif;
+}
+
+.search-filter-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.filter-container {
+  display: flex;
+  gap: 20px;
+}
+
+.filter-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+
+.filter-select {
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 2px solid #ccc;
+  background-color: #fff;
+  width: 150px;
+}
+
+.product-table-container {
+  margin-top: 30px;
+}
+
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.product-table th,
+.product-table td {
+  padding: 15px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.product-table th {
+  background-color: #f1f1f1;
+  color: #333;
+}
+
+.product-table td {
+  background-color: #fafafa;
+}
+
+.product-table td img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pagination button:disabled {
+  background-color: #ccc;
+}
+
+.pagination button:hover:not(:disabled) {
+  background-color: #45a049;
+}
+
+/* Filter Applied Indicator */
+.filter-applied {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.filter-applied span {
+  padding: 5px 10px;
+  background-color: #4CAF50;
+  color: #fff;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.filter-applied .clear-filters {
+  background-color: #f44336;
+  cursor: pointer;
+}
+
+.clear-filters:hover {
+  background-color: #e53935;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 20px;
+  color: #555;
+}
+
+/* AdminComp.css */
 .product-manage-page {
   max-width: 1400px;
   margin: 0 auto;
@@ -386,7 +523,182 @@ thead th:last-child {
 
 
 
+/* Search Filter Container */
+.search-filter-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+  background: linear-gradient(145deg, #e0e7ff 0%, #a5b4fc 100%);
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  max-width: 1400px;
+  margin: 3rem auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
+.search-filter-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Search Bar */
+.search-bar {
+  flex: 2;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  color: #1e293b;
+  background: #ffffff;
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.search-bar:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(129, 140, 248, 0.4), inset 0 2px 10px rgba(0, 0, 0, 0.05);
+  transform: scale(1.03);
+}
+
+.search-bar::placeholder {
+  color: #94a3b8;
+  font-style: italic;
+  font-weight: 300;
+}
+
+/* Filter Container */
+.filter-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+/* Filter Item */
+.filter-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-width: 180px;
+}
+
+/* Filter Label */
+.filter-label {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1e293b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Filter Select */
+.filter-select {
+  padding: 0.9rem 1.5rem;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #ffffff 0%, #f1f5f9 100%);
+  color: #1e293b;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.filter-select:hover {
+  background: #818cf8;
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 20px rgba(129, 140, 248, 0.4);
+}
+
+.filter-select:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(129, 140, 248, 0.4);
+}
+
+/* Responsive Design - Tablet */
+@media (max-width: 1024px) {
+  .search-filter-container {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  .search-bar {
+    flex: unset;
+    width: 100%;
+    padding: 0.9rem 1.5rem;
+  }
+
+  .filter-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .filter-item {
+    min-width: 160px;
+  }
+}
+
+/* Responsive Design - Mobile */
+@media (max-width: 640px) {
+  .search-filter-container {
+    padding: 1rem;
+    margin: 1.5rem auto;
+  }
+
+  .search-bar {
+    padding: 0.8rem 1.2rem;
+    font-size: 0.95rem;
+  }
+
+  .filter-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .filter-item {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .filter-label {
+    font-size: 0.85rem;
+  }
+
+  .filter-select {
+    padding: 0.8rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* Extra Small Devices */
+@media (max-width: 400px) {
+  .search-filter-container {
+    padding: 0.8rem;
+  }
+
+  .search-bar {
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .filter-label {
+    font-size: 0.8rem;
+  }
+
+  .filter-select {
+    padding: 0.7rem;
+    font-size: 0.9rem;
+  }
+}
 /* ##################### ShowAndManageProductComponent css end ##############################*/
 
 
@@ -493,21 +805,7 @@ thead th:last-child {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Search Bar Styles */
-.search-bar {
-  width: 65%;
-  padding: 12px 20px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  outline: none;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
 
-.search-bar:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
-}
 
 /* Filter Container for Dropdowns */
 .filter-container {
@@ -656,10 +954,6 @@ thead th:last-child {
     align-items: stretch;
   }
 
-  .search-bar {
-    width: 100%;
-    margin-bottom: 15px;
-  }
 
   .filter-container {
     flex-direction: column;

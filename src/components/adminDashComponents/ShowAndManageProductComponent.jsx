@@ -8,7 +8,7 @@ import { toast } from "react-toastify"
 import { addToCart  } from '../../features/product/productSlice';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 
-const ShowAndManageProductComponent = ({ adminWant = '1' }) => {
+const ShowAndManageProductComponent = ({ adminWant = '1', refresh }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
@@ -20,6 +20,7 @@ const ShowAndManageProductComponent = ({ adminWant = '1' }) => {
   const productsPerPage = 7;
   const { user } = useUser();
   const dispatch = useDispatch();
+
 
   // 0 => false 
   // 1 => true 
@@ -44,10 +45,10 @@ const ShowAndManageProductComponent = ({ adminWant = '1' }) => {
     };
 
     fetchProducts();
-  }, [currentPage, searchQuery, categoryFilter, availabilityFilter, adminWant]);
+  }, [currentPage, searchQuery, categoryFilter, availabilityFilter, adminWant, refresh]);
 
 
-  const handelPaginationWorks = async () => {
+ const handelPaginationWorks = async () => {
     const data = await productService.getProducts(currentPage, productsPerPage, searchQuery, categoryFilter, availabilityFilter, adminWant);
     setProducts(data.data.products);
     setTotalPages(data.data.totalPages);
@@ -113,6 +114,7 @@ const ShowAndManageProductComponent = ({ adminWant = '1' }) => {
 
 
   const addToCartBtn = (event, userId, productId,name,price, imageUrl) => {
+
     event.preventDefault();
     toast.success("Product added to cart successfully!");
     const product = {
@@ -130,6 +132,12 @@ const ShowAndManageProductComponent = ({ adminWant = '1' }) => {
 
 
   }
+
+
+
+
+
+
 
   return (
     <div className="product-manage-page">

@@ -73,7 +73,7 @@ const ProtectedPage = ({ children }) => {
             if (auth?.user?.role === "admin") {
             navigate("/admin/dashboard/add-product");
             } else {
-            navigate("/user/dashboard");
+            navigate("/user/dashboard/profile");
             }
         }
     }, [auth, location]);

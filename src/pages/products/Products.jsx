@@ -1,15 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ShowAndManageProductComponent from '../../components/adminDashComponents/ShowAndManageProductComponent';
 import "./Product.css";
 import { Bill } from '../../components';
 
 
 const Products = () => {
+
+  const [refresh, setRefresh] = useState(false);
+
+  const handelRefresh = () => {
+    setRefresh(!refresh);
+  }
   return (
     <div className='product'>
-      <ShowAndManageProductComponent />
+      <ShowAndManageProductComponent refresh={refresh} />
       <div className='add-to-card-container'>
-        <Bill />
+        <Bill handelRefresh={handelRefresh} />
       </div>
     </div>
   )

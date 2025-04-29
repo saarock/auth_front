@@ -34,11 +34,15 @@ export const productSlice = createSlice({
 
         deleteFromCart: (state, action) => {
             return state.filter(currentProduct => currentProduct.productId !== action.payload.productId);
+        },
+        
+        deleteAllFromCart: (state, action) => {
+            state.length = 0;
         }
     }
 });
 
 
-export const { addToCart, deleteFromCart } = productSlice.actions;
+export const { addToCart, deleteFromCart, deleteAllFromCart } = productSlice.actions;
 
 export default productSlice.reducer;

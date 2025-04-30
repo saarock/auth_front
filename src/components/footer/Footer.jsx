@@ -27,17 +27,7 @@ const Footer = () => {
           <p className="fr-newsletter-text">
             Subscribe for exclusive offers and updates.
           </p>
-          <form className="fr-newsletter-form" onSubmit={(e) => e.preventDefault()}>
-            <input
-              type="email"
-              className="fr-newsletter-input"
-              placeholder="Your Email"
-              aria-label="Email for newsletter"
-            />
-            <button type="submit" className="fr-newsletter-button">
-              Subscribe
-            </button>
-          </form>
+          
         </div>
 
         <div className="fr-footer-contact">

@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaUtensils, FaPlusCircle, FaUsersCog, FaDeviantart } from 'react-icons/fa';
 import './AdminDash.css';
-import { NavLink } from 'react-router'; // Correct import for NavLink
+import { NavLink } from 'react-router-dom'; 
 import { useSelector } from 'react-redux';
 
 const AdminDashBoardNav = () => {

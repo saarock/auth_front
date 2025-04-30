@@ -1,8 +1,7 @@
 import React from 'react';
-import { FaUser, FaCog, FaBell, FaEnvelope, FaSignOutAlt } from 'react-icons/fa';
+import { FaUser, FaCog, FaBell } from 'react-icons/fa';
 import './userDash.css';
-import { NavLink } from 'react-router'; 
-import { toast } from 'react-toastify';
+import { NavLink } from 'react-router-dom'; 
 import useUser from '../../hooks/useUser';
 import useSocket from '../../hooks/useSocket';
 

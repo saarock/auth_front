@@ -75,9 +75,9 @@ const LoginPage = () => {
 
   }
   return (
-    <>
+    <div className='login-container'>
       <LoginComponent onSubmit={signIn} onChange={onInputChange} />
-    </>
+    </div>
   )
 }
 

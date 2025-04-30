@@ -285,61 +285,6 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-
-      {/* Contact Section */}
-      <section id="contact" className="contact-section py-20 bg-gray-800">
-        <div className="container mx-auto px-4">
-          <h2 className="text-5xl font-extrabold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-lime-500">
-            Get in Touch
-          </h2>
-          <form className="contact-form max-w-lg mx-auto bg-gradient-to-br from-gray-800 to-gray-700 rounded-2xl shadow-2xl p-8">
-            <div className="mb-6">
-              <label className="block text-lg font-semibold mb-2 text-gray-200" htmlFor="name">
-                Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                className="w-full p-4 border-2 border-cyan-500 rounded-lg bg-gray-900 text-white focus:border-cyan-400 focus:ring-2 focus:ring-cyan-200 transition-all transform hover:scale-102"
-                placeholder="Your Name"
-                required
-              />
-            </div>
-            <div className="mb-6">
-              <label className="block text-lg font-semibold mb-2 text-gray-200" htmlFor="email">
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                className="w-full p-4 border-2 border-magenta-500 rounded-lg bg-gray-900 text-white focus:border-magenta-400 focus:ring-2 focus:ring-magenta-200 transition-all transform hover:scale-102"
-                placeholder="Your Email"
-                required
-              />
-            </div>
-            <div className="mb-6">
-              <label className="block text-lg font-semibold mb-2 text-gray-200" htmlFor="message">
-                Message
-              </label>
-              <textarea
-                id="message"
-                className="w-full p-4 border-2 border-lime-500 rounded-lg bg-gray-900 text-white focus:border-lime-400 focus:ring-2 focus:ring-lime-200 transition-all transform hover:scale-102"
-                rows="5"
-                placeholder="Your Message"
-                required
-              ></textarea>
-            </div>
-            <button
-              type="submit"
-              className="btn filled bg-gradient-to-r from-cyan-500 to-magenta-500 hover:from-cyan-600 hover:to-magenta-600 text-white py-4 px-8 rounded-full transition-all transform hover:scale-110 w-full"
-            >
-              Send Message
-            </button>
-          </form>
-        </div>
-      </section>
-
-
     </div>
   );
 };

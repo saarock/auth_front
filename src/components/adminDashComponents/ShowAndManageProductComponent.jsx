@@ -7,6 +7,8 @@ import useUser from '../../hooks/useUser';
 import { toast } from "react-toastify"
 import { addToCart  } from '../../features/product/productSlice';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
+import {categoryOptions} from "../../constant.js";
+
 
 const ShowAndManageProductComponent = ({ adminWant = '1', refresh }) => {
   const [products, setProducts] = useState([]);
@@ -164,10 +166,10 @@ const ShowAndManageProductComponent = ({ adminWant = '1', refresh }) => {
                   onChange={(e) => setCategoryFilter(e.target.value)}
                 >
                   <option value="2">All Categories</option>
-                  <option value="electronics">Electronics</option>
-                  <option value="clothing">Clothing</option>
-                  <option value="accessories">Accessories</option>
-                  {/* Add more categories as needed */}
+                 {
+                   categoryOptions?.length > 0 ? 
+                   categoryOptions.map((ca) => <option label={`${ca.label}`}>{ca.value}</option>) : "No category available"
+                 }
                 </select>
               </div>
 

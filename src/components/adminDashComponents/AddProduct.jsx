@@ -3,6 +3,7 @@ import './AdminComp.css';
 import productService from '../../services/productService';
 import { handleResponse } from '../../utils';
 import { toast } from 'react-toastify';
+import { categoryOptions } from '../../constant';
 
 const AddProduct = () => {
   const [formData, setFormData] = useState({
@@ -19,14 +20,7 @@ const AddProduct = () => {
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
 
-  // Sample category options (replace with your actual categories)
-  const categoryOptions = [
-    { value: '', label: 'Select a category' },
-    { value: 'drinks', label: 'Beverages' },
-    { value: 'food', label: 'Appetizers' },
-    { value: 'raw-food', label: 'Main Course' },
-    { value: 'desserts', label: 'Desserts' },
-  ];
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;

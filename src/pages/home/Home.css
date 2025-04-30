@@ -1,132 +1,231 @@
-
-
+/* General Styles */
 .inventory-home {
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(160deg, #0d0d2b 0%, #1a2447 50%, #2e1b5f 100%);
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #0a1a3d 0%, #1e3a8a 50%, #1e1b5f 100%);
+  color: #fff;
   min-height: 100vh;
-  overflow: hidden;
 }
 
-.hero-advanced {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-  will-change: background-position;
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
 }
 
-.hero-advanced::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
-  pointer-events: none;
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(180deg, #1e3a8a 0%, #0a1a3d 100%);
+  padding: 4rem 1rem;
 }
 
-.hero-content,
-.hero-img,
-.feature-card,
-.about-content,
-.about-img,
-.testimonial,
-.contact-form {
-  will-change: transform, opacity;
+.hero-content h1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
 }
 
-.hero-content {
-  transform: perspective(1000px) rotateY(5deg);
-  transition: transform 0.5s ease;
+.hero-content p {
+  font-size: 1.125rem;
 }
 
-.hero-content:hover {
-  transform: perspective(1000px) rotateY(0deg);
+.hero-cta .btn {
+  font-size: 1rem;
+  font-weight: 600;
 }
 
-.hero-img {
-  transform: perspective(1000px) rotateY(-5deg);
-  transition: transform 0.5s ease;
+.hero-img img {
+  max-width: 100%;
+  height: auto;
 }
 
-.hero-img:hover {
-  transform: perspective(1000px) rotateY(0deg);
+/* Buttons */
+.btn {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn.filled {
+  background: linear-gradient(to right, #3b82f6, #06b6d4);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+}
+
+.btn.filled:hover {
+  background: linear-gradient(to right, #2563eb, #0891b2);
+  transform: scale(1.05);
+}
+
+.btn.outline {
+  border: 2px solid #3b82f6;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+}
+
+.btn.outline:hover {
+  background: #3b82f6;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* Features Section */
+.features-section {
+  background: #111827;
+  padding: 4rem 1rem;
 }
 
 .feature-card {
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  backdrop-filter: blur(10px);
+  background: linear-gradient(to bottom right, #1f2937, #111827);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.feature-card:hover {
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+.feature-card h3 {
+  font-size: 1.25rem;
+}
+
+.feature-card p {
+  font-size: 1rem;
+  color: #d1d5db;
+}
+
+/* About Section */
+.about-section {
+  background: #1f2937;
+  padding: 4rem 1rem;
+}
+
+.about-content h2 {
+  font-size: 2.25rem;
+}
+
+.about-content p,
+.about-content li {
+  font-size: 1.125rem;
+  color: #d1d5db;
+}
+
+.about-img img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+  background: #111827;
+  padding: 4rem 1rem;
 }
 
 .testimonial {
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  backdrop-filter: blur(10px);
+  background: linear-gradient(to bottom right, #1f2937, #111827);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.testimonial:hover {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+.testimonial p {
+  font-size: 1rem;
+  color: #d1d5db;
+}
+
+.testimonial p.font-semibold {
+  font-size: 1rem;
+}
+
+/* Contact Section */
+.contact-section {
+  background: #1f2937;
+  padding: 4rem 1rem;
+}
+
+.contact-form {
+  background: linear-gradient(to bottom right, #1f2937, #111827);
+  border-radius: 0.75rem;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form label {
+  font-size: 1rem;
+  color: #e5e7eb;
 }
 
 .contact-form input,
 .contact-form textarea {
-  transition: all 0.4s ease;
+  background: #111827;
+  border: 2px solid #3b82f6;
+  color: #fff;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  width: 100%;
+  font-size: 1rem;
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
+  border-color: #06b6d4;
   outline: none;
-  transform: scale(1.03);
 }
 
-.btn.filled {
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+.contact-form button {
+  font-size: 1rem;
+  font-weight: 600;
 }
 
-.btn.filled::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: width 0.5s ease, height 0.5s ease;
+/* Responsive Design */
+@media (min-width: 640px) {
+  .hero-content h1 {
+    font-size: 3.5rem;
+  }
+
+  .hero-content p {
+    font-size: 1.25rem;
+  }
+
+  .features-section,
+  .about-section,
+  .testimonials-section,
+  .contact-section {
+    padding: 5rem 1rem;
+  }
 }
 
-.btn.filled:hover::after {
-  width: 300%;
-  height: 300%;
+@media (min-width: 768px) {
+  .hero-section {
+    padding: 6rem 1rem;
+  }
+
+  .hero-content,
+  .hero-img {
+    width: 50%;
+  }
+
+  .about-content,
+  .about-img {
+    width: 50%;
+  }
+
+  .features-section .grid,
+  .testimonials-section .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.btn.outline {
-  position: relative;
-  overflow: hidden;
-}
+@media (min-width: 1024px) {
+  .features-section .grid,
+  .testimonials-section .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 
-.btn.outline::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: width 0.5s ease, height 0.5s ease;
-}
+  .hero-content h1 {
+    font-size: 4rem;
+  }
 
-.btn.outline:hover::after {
-  width: 300%;
-  height: 300%;
+  .hero-content p {
+    font-size: 1.5rem;
+  }
 }

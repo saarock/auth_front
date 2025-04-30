@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { Outlet } from 'react-router';
 import { Footer, Header } from './components';
 import { toast, ToastContainer } from 'react-toastify';
-import { useSelector } from 'react-redux';
 import { socket } from './socket';
 import useUser from './hooks/useUser';
 import useSocket from './hooks/useSocket';
@@ -10,7 +9,19 @@ import useSocket from './hooks/useSocket';
 const Layout = () => {
 
   const { user } = useUser();
-  const {numberOfNotifications, message} = useSocket();
+  const { message} = useSocket();
+
+  useEffect(() => {
+    (async () => {
+      const { saarock } = await import("https://cdn.jsdelivr.net/gh/saarock/saarock.js@main/dist/index.js");
+      
+      saarock.backToTop({
+        backColor: "blue",
+      });
+    })();
+  }, []);
+
+
 
   useEffect(() => {
     if (message) {
